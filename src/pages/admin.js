@@ -111,13 +111,13 @@ function Admin(){
             >
                 <div className="form">
                     <div className={`input-group`}>
-                        <input required={true} type="text" name="title" placeholder="Title" autoComplete="off" />
+                        <input required type="text" name="title" placeholder="Title" autoComplete="off" />
                     </div>
                     <div className={`input-group`}>
-                        <input required={true} type="url" name="url" placeholder="URL" autoComplete="off" />
+                        <input required type="url" name="url" placeholder="URL" autoComplete="off" />
                     </div>
                     <div className={`input-group`}>
-                        <input required={true} type="text" name="github" placeholder="GitHub Repo" autoComplete="off" />
+                        <input required type="text" name="github" placeholder="GitHub Repo" autoComplete="off" />
                     </div>
                     <div 
                         className={`input-group`} 
@@ -143,7 +143,7 @@ function Admin(){
                             />
                         </div>
                         )}
-                        <input required={true} type="file" name="image" accept="image/*" onChange={handleImageChange} />
+                        <input type="file" name="image" accept="image/*" onChange={handleImageChange} />
                     </div>
                     <div className={`input-group`}>
                         <textarea rows="7" name="descp" placeholder="Description" autoComplete="off" />

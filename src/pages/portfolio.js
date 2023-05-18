@@ -89,7 +89,7 @@ function PortfolioPage({data}){
                             className="image-wrapper"
                             style={{
                                 backgroundImage: `url("${image}")`,
-                                backgroundSize: 'cover',
+                                backgroundSize: 'contain',
                                 height: 250
                             }}
                             >
