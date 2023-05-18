@@ -35,7 +35,8 @@ const UploadProject = async (req, res) => {
             image: `data:image/png;base64, ${imageBase64}`,
             title: title,
             descp: descp,
-            github: github
+            github: github,
+            portfolio_added: new Date(),
         })
         
         res.json({

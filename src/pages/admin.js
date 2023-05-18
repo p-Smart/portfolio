@@ -31,10 +31,6 @@ function toastError(string, emoji=true, timeout=2000){
 
 
 function Admin(){
-
-    const [astkName, setAstkName] = useState(false)
-    const [astkEmail, setAstkEmail] = useState(false)
-    const [astkMessage, setAstkMessage] = useState(false)
     const form = useRef(null)
 
     const [buttonLoad, setButtonLoad] = useState(false)
@@ -42,13 +38,25 @@ function Admin(){
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
+            setButtonLoad(true)
             const formData = new FormData(form.current)
             const {data} = await axios.post('/api/upload-project', formData)
-            console.log(data)
+            if(data.success){
+                toastSuccess('Upload successful')
+                form.current.reset()
+                setSelectedImage(null)
+            }
+            else{
+                toastError('Upload failed, try again')
+            }
             
         }
         catch(err){
             console.error(err.message)
+            toastError('Upload failed, try again')
+        }
+        finally{
+            setButtonLoad(false)
         }
     }
 
@@ -99,17 +107,17 @@ function Admin(){
             <form
             ref={form}
             encType="multipart/form-data"
-            noValidate
+            onSubmit={handleSubmit}
             >
                 <div className="form">
                     <div className={`input-group`}>
-                        <input type="text" name="title" placeholder="Title" autoComplete="off" />
+                        <input required={true} type="text" name="title" placeholder="Title" autoComplete="off" />
                     </div>
                     <div className={`input-group`}>
-                        <input type="email" name="url" placeholder="URL" autoComplete="off" />
+                        <input required={true} type="url" name="url" placeholder="URL" autoComplete="off" />
                     </div>
                     <div className={`input-group`}>
-                        <input type="text" name="github" placeholder="GitHub Repo" autoComplete="off" />
+                        <input required={true} type="text" name="github" placeholder="GitHub Repo" autoComplete="off" />
                     </div>
                     <div 
                         className={`input-group`} 
@@ -135,14 +143,16 @@ function Admin(){
                             />
                         </div>
                         )}
-                        <input type="file" name="image" accept="image/*" onChange={handleImageChange} />
+                        <input required={true} type="file" name="image" accept="image/*" onChange={handleImageChange} />
                     </div>
                     <div className={`input-group`}>
                         <textarea rows="7" name="descp" placeholder="Description" autoComplete="off" />
                     </div>
                 </div>
-                <div className="submit" onClick={buttonLoad ? ()=>{} : handleSubmit}>
-                    <Button text='Update Portfolio'
+                <div className="submit">
+                    <Button
+                    text='Update Portfolio'
+                    type='submit'
                     loading={buttonLoad ? true : false} 
                     />
                 </div>

@@ -15,10 +15,10 @@ var ButtonStyle = styled.div`
 .btn::selection{ background: transparent; user-select: none;}
 `
 
-function Button({text, loading, loadingText}){
+function Button({text, loading, loadingText, type}){
     return(
         <ButtonStyle>
-            <div className={`btn ${loading ? 'disabled' : ''}`}>
+            <button type={type} className={`btn ${loading ? 'disabled' : ''}`}>
                 { loading && 
                     <Triangle
                     height={"24"}
@@ -29,7 +29,7 @@ function Button({text, loading, loadingText}){
                     />
                 }&nbsp;
                 {!loading ? text : loadingText}
-            </div>
+            </button>
         </ButtonStyle>
     )
 }

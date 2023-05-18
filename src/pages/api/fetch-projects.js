@@ -10,7 +10,7 @@ const FetchProjects = async (req, res) => {
         }
         await connectToDB()
 
-        const portfolios = await Portfolios.find({})
+        const portfolios = await Portfolios.find({}).sort({portfolio_added: -1})
         
         res.json({
             success: true,

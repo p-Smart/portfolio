@@ -11,7 +11,11 @@ const PortfoliosModel = new Schema({
     image: detailConfig,
     title: detailConfig,
     descp: detailConfig,
-    github: detailConfig
+    github: detailConfig,
+    portfolio_added: {
+      type: Date,
+      required: true,
+    }
   })
 
 const Portfolios = mongoose.models.Portfolios ||  mongoose.model('Portfolios', PortfoliosModel)
