@@ -43,8 +43,8 @@ a{ text-decoration: unset; color: unset;}
 
 
 :root{ --white: #fff; -webkit-tap-highlight-color: transparent; }
-:root.dark{ --theme1: #222222; --theme2: #151515; --text1: #fff; --text2: #fff; --other: #393939; --html: #f06529;  --css: #2965f1; --js: #f0db4f; --bs: #0d6efd; --php: #8993be; --py: #4B8BBE; --react: #7cc5d9; --nxt: #05427c; --scroll-track: #4a4a4a;}
-:root.light{ --theme1: #fdf9ff; --theme2: #f2f2fc; --text1: #000000; --text2: #666666; --other: #ebe2ee; --html: #222; --css: #222; --js: #222; --bs: #222; --php: #222; --py: #222; --react: #222; --nxt: #222; --scroll-track: #c4c4d2;}
+:root.dark{ --theme1: #222222; --theme2: #151515; --card-background: #f2f2fc; --card-text: #666; --text1: #fff; --text2: #fff; --text1-r: #000; --text2-r: #666; --other: #393939; --scroll-track: #4a4a4a;}
+:root.light{ --theme1: #fdf9ff; --theme2: #f2f2fc; --card-background:  #fdf9ff; --card-text: #666; --text1: #000; --text2: #666; --text1-r: #fff; --text2-r: #fff; --other: #ebe2ee; --scroll-track: #c4c4d2;}
 :root.green{ --primary: #72b626; --button-disabled: #99a97d; }
 :root.orange{ --primary: #fa5b0f; --primary-hover: #e14a0c; --button-disabled: #b58166; }
 :root.red{ --primary: #f72c1d; --primary-hover: #c91a0e; --button-disabled: #d48a88; }
@@ -158,12 +158,13 @@ body{ background: var(--theme2); }
 /* Portfolio Page */
 .portfolio-page{ padding: 50px 20px 0 20px; display: flex; flex-direction: column; gap: 50px; background: var(--theme2); }
 .portfolio-page .head{ font-weight: 700; font-size: 1.3em; color: var(--text2); }
-.portfolio-page .main{ width: 100%;  display: grid; grid-template-columns: repeat(3, minmax(100px, 350px)); gap: 30px; justify-content: space-evenly; margin-bottom: 50px; }
-.portfolio-page .img{ width: 100%; height: 100%; object-fit: cover; transition: .5s !important; } /* For Lazy Load Component */
-.portfolio-page img{ width: 100%; height: 100%; object-fit: cover; object-position: center; transition: .5s !important; }
-.portfolio-page .wrapper{ height: 229px; border-radius: 10px; box-shadow: 0 0 rgb(0,0,0.125); overflow: hidden; cursor: zoom-in; }
-.portfolio-page .wrapper:hover .img{ transform: scale(1.2); } /* For Lazy Load Component */
-.portfolio-page .wrapper:hover img{ transform: scale(1.2); }
+.portfolio-page .main{ width: 100%;  display: grid; grid-template-columns: repeat(3, minmax(100px, 350px)); gap: 30px; justify-content: center; margin-bottom: 50px; }
+.portfolio-page .img{ width: 100%; height: 100%; transition: .5s !important; } /* For Lazy Load Component */
+.portfolio-page img{ width: 100%; height: 100%; object-fit: contain; object-position: center; transition: .5s !important; }
+.portfolio-page .image-wrapper{ background-color: var(--card-background); overflow: hidden; cursor: zoom-in; transition: transform 0.3s ease; }
+.portfolio-page .image-wrapper:hover{transform: scale(1.2);}
+.portfolio-page .portfolios{ background-color: var(--card-background); border-radius: 15px; box-shadow: 0 0 rgb(0,0,0.125); overflow: hidden; }
+.portfolio-page .image-bottom{ padding: 10px; display: flex; flex-direction: column; gap: 10px; color: var(--card-text); }
 
 /* Contact Page */
 .contact-page{ padding: 50px 20px 0 20px; display: flex; flex-direction: column; gap: 50px; background: var(--theme2); }
