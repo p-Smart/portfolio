@@ -24,11 +24,11 @@ function Theme({colors, handleColor, theme, handleTheme, setShowMenuBar}){
         )
     }, [] )
 
-    useEffect( () => {
-        setTimeout(() => {
-            setShowToolTip(false)
-        }, 3000);
-    }, [])
+    // useEffect( () => {
+    //     setTimeout(() => {
+    //         setShowToolTip(false)
+    //     }, 10000);
+    // }, [])
 
     return(
         <div className={`theme ${showSetting ? "show" : ""}`}>
