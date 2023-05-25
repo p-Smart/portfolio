@@ -15,7 +15,7 @@ function Theme({colors, handleColor, theme, handleTheme, setShowMenuBar}){
     } )   
 
     // On Page Load
-    const [showToolTip, setShowToolTip] = useState(true);
+    const [showToolTip, setShowToolTip] = useState(false);
 
     useEffect( () => {
         document.documentElement.addEventListener("click", (e) => handleBody(e) )
@@ -24,11 +24,14 @@ function Theme({colors, handleColor, theme, handleTheme, setShowMenuBar}){
         )
     }, [] )
 
-    // useEffect( () => {
-    //     setTimeout(() => {
-    //         setShowToolTip(false)
-    //     }, 10000);
-    // }, [])
+    useEffect( () => {
+        setShowToolTip(true)
+        let timeoutId = setTimeout(() => {
+            setShowToolTip(false)
+        }, 3000);
+
+        return () => clearTimeout(timeoutId)
+    }, [])
 
     return(
         <div className={`theme ${showSetting ? "show" : ""}`}>
@@ -37,12 +40,12 @@ function Theme({colors, handleColor, theme, handleTheme, setShowMenuBar}){
                     <FaBars />
                 </div>
                 <div data-tooltip-id="settings" data-tooltip-content="Change Primary Color" className="control" onClick={handleShowSetting}><IoMdSettings className="spin"/></div>
-                <Tooltip style={{display: 'flex', zIndex: 999}} className="tool-tip" id="settings" place='left' isOpen={showToolTip}/>
+                <Tooltip className="tool-tip" id="settings" place='left' isOpen={showToolTip}/>
 
                 <div data-tooltip-id="theme" data-tooltip-content={`Switch to ${theme ? 'Dark' : 'Light'} mode`} className="control" onClick={handleTheme}>
                     <ThemeIcon />
                 </div>
-                <Tooltip style={{display: 'flex', zIndex: 999}} className="tool-tip" id="theme" place="left" isOpen={showToolTip}/>
+                <Tooltip className="tool-tip" id="theme" place="left" isOpen={showToolTip}/>
             </div>
             <div className="right">
                 <div className="text">Theme Colors</div>
