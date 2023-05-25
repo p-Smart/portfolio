@@ -37,12 +37,12 @@ function Theme({colors, handleColor, theme, handleTheme, setShowMenuBar}){
                     <FaBars />
                 </div>
                 <div data-tooltip-id="settings" data-tooltip-content="Change Primary Color" className="control" onClick={handleShowSetting}><IoMdSettings className="spin"/></div>
-                <Tooltip className="tool-tip" id="settings" place='left' isOpen={showToolTip}/>
+                <Tooltip style={{display: 'flex', zIndex: 999}} className="tool-tip" id="settings" place='left' isOpen={showToolTip}/>
 
                 <div data-tooltip-id="theme" data-tooltip-content={`Switch to ${theme ? 'Dark' : 'Light'} mode`} className="control" onClick={handleTheme}>
                     <ThemeIcon />
                 </div>
-                <Tooltip className="tool-tip" id="theme" place="left" isOpen={showToolTip}/>
+                <Tooltip style={{display: 'flex', zIndex: 999}} className="tool-tip" id="theme" place="left" isOpen={showToolTip}/>
             </div>
             <div className="right">
                 <div className="text">Theme Colors</div>
