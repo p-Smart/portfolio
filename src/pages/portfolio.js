@@ -81,7 +81,7 @@ function PortfolioPage({data}){
                         target="blank"
                         key={k} 
                         className="portfolios"
-                        style={{cursor: 'pointer'}}
+                        style={{cursor: 'pointer', alignSelf: 'flex-start'}}
                         data-aos="fade-left"
                         >
                             <div style={{height: 250, overflow:'hidden'}}>
@@ -102,7 +102,8 @@ function PortfolioPage({data}){
                                     <h4 
                                     style={{
                                         color: 'var(--primary)',
-                                        fontStyle: 'italic'
+                                        fontStyle: 'italic',
+                                        whiteSpace: 'nowrap'
                                         }}
                                     >
                                     {url}
@@ -117,7 +118,8 @@ function PortfolioPage({data}){
                                     <h4 
                                     style={{
                                         color: 'var(--primary)',
-                                        fontStyle: 'italic'
+                                        fontStyle: 'italic',
+                                        whiteSpace: 'nowrap'
                                         }}
                                     >
                                     {github}
