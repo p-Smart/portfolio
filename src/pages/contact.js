@@ -7,7 +7,7 @@ import {BiWorld} from "react-icons/bi"
 import { useState } from "react"
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import axios from "axios"
 import { validate } from "email-validator"
 
 
@@ -55,7 +55,11 @@ function Contact(){
         e.target.name == "message" && setAstkMessage(false)
     }
 
-    const sendMessage = () => {
+    const sendMessage = async (e) => {
+        e.preventDefault()
+        if(buttonLoad){
+            return
+        }
         if (form.email=="" || form.name=="" || form.message==""){
             form.email=="" && setAstkEmail(true)
             form.name=="" && setAstkName(true)
@@ -77,32 +81,27 @@ function Contact(){
         formData.append("text", message);
         formData.append("parse_mode", "HTML")
 
-        fetch(API_ROUTE, {
-            method: 'POST',
-            headers: { 
-                'Access-Control-Allow-Origin' : '*',
-             },
-            body: formData,
-        })
-        .then( (res) => res.json() )
-        .then( (res) => {
-            if (res){
-                fetch(`/api/sendEmail?name=${form.name}&email=${form.email}`)
-                .then( (res) => res.json() )
-                .then( (res) => {
-                    toastSuccess("Message Sent")
-                    setButtonLoad(false)
-                } )
-                .catch( (err) => {
-                    toastSuccess("Message Sent")
-                    setButtonLoad(false)
-                } )
+        try{
+            const {data} = await axios.post(API_ROUTE, formData, {headers: {'Access-Control-Allow-Origin' : '*'}})
+            if(data){
+                try{
+                    await axios.get(`/api/sendEmail?name=${form.name}&email=${form.email}`)
+                }
+                catch(err){
+                    console.error('Could not send response mail')
+                }
             }
-        } )
-        .catch( (e) => {
+            toastSuccess("Message Sent")
+            
+        }
+        catch(err){
             toastError("An Error Occured")
+        }
+        finally{
             setButtonLoad(false)
-        } )
+        }
+        
+        
     }
 
 
@@ -144,7 +143,7 @@ function Contact(){
                 <span>SEND ME AN EMAIL</span>
                 I&apos;M VERY RESPONSIVE TO MESSAGES
             </div>
-            <form>
+            <form onSubmit={sendMessage}>
                 <div className="form">
                     <div className={`input-group ${astkName ? "astk" : ""}`}>
                         <input type="text" name="name" placeholder="Name"  onChange={ (e) => handleForm(e) } autoComplete="off" />
@@ -159,8 +158,8 @@ function Contact(){
                         <textarea rows="7" name="message" placeholder="Message"  onChange={ (e) => handleForm(e) } autoComplete="off" />
                     </div>
                 </div>
-                <div className="submit" onClick={buttonLoad ? ()=>{} : sendMessage}>
-                    <Button text={"Send Message"} 
+                <div>
+                    <Button type='submit' text={"Send Message"} 
                     loading={buttonLoad ? true : false} 
                     />
                 </div>

@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react"
+import Router  from "next/router"
 import {IoMdSettings} from 'react-icons/io'
 import {FaMoon, FaSun, FaBars} from 'react-icons/fa'
 import { Tooltip } from "react-tooltip"
 import 'react-tooltip/dist/react-tooltip.css'
 
 function Theme({colors, handleColor, theme, handleTheme, setShowMenuBar}){
+    Router.router
     const [showSetting, setShowSetting] = useState(false)
     const ThemeIcon = theme ? FaMoon : FaSun
     var handleShowSetting = () => {
@@ -15,7 +17,7 @@ function Theme({colors, handleColor, theme, handleTheme, setShowMenuBar}){
     } )   
 
     // On Page Load
-    const [showToolTip, setShowToolTip] = useState(false);
+    const [showToolTip, setShowToolTip] = useState(false)
 
     useEffect( () => {
         document.documentElement.addEventListener("click", (e) => handleBody(e) )
