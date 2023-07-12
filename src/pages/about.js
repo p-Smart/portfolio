@@ -50,7 +50,7 @@ function About(){
                             <p><span>Languages: </span> English, Yoruba, Pidgin</p>
                         </div>
                         <div className='leftsitem'>
-                        <p><span>Address: </span> Flat 6, Block 12, Amina Way, University of Ibadan, Ibadan.</p>
+                        <p><span>Address: </span> . . .</p>
                         <p><span>Email: </span> 
                         <span 
                         style={{color: 'var(--primary)', fontWeight: 'bold'}}
