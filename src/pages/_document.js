@@ -5,7 +5,7 @@ export default function Document() {
   const title = "Prince Ajayi | Web Developer"
   const description = "Full stack Web developer | React.js | Node.js | PHP"
   const url = "https://princeajayi.vercel.app"
-  const imageUrl = "https://static.netnaija.com/i/AqgKGlZ47r1.webp"
+  const imageUrl = "https://princeajayi.vercel.app/seo-image.jpg"
 
 
   return (
