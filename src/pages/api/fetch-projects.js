@@ -12,7 +12,8 @@ const FetchProjects = async (req, res) => {
 
         const portfolios = await Portfolios.find({}).sort({portfolio_added: -1})
         
-        res.json({
+        
+        res.status(200).json({
             success: true,
             data: portfolios
         })

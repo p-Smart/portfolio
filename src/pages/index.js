@@ -12,11 +12,6 @@ import homepageimg from '../../public/assets/img/homepage.jpg'
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>pSmart</title>
-        <meta name="description" content="pSmart Home Page" />
-      </Head>
-
       <div className="home" data-aos="slide-left">
             <div className="left">
                 <div className="heading">Hello, my name is <span>Prince Ajayi</span></div>

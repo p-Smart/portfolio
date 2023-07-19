@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Head from "next/head"
 import { primaryCol } from "@/colors"
-import { ToastContainer } from "react-toastify"
 import Aos from "aos"
 import 'aos/dist/aos.css'
 import Cookies from "js-cookie"
@@ -12,10 +11,12 @@ import Cookies from "js-cookie"
 import SideMenu from "./SideMenu"
 import Theme from "./Theme"
 import Loading from "./Loading"
-import Logo from "./Logo"
+import { useThemeContext } from "@/contexts/themeContext"
 
 
 function Layout({children}){
+    
+
     const [showLoader, setShowLoader] = useState(false)
 
     const router = useRouter()
@@ -29,7 +30,7 @@ function Layout({children}){
     
 
     const [primaryColor, setPrimaryColor] = useState(null)
-    const [theme, setTheme] = useState(null)
+    const {theme, setTheme} = useThemeContext()
     // Initialize AOS
     useEffect( () => {
         typeof window!=undefined && Aos.init()
@@ -89,12 +90,6 @@ function Layout({children}){
 
 
     return (
-        <>
-        <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
         <div className={`App ${router.pathname == '/404' ? 'not-found' : ''}`}>
             { router.pathname != '/404' && primaryColor!==null && theme!==null &&
             <>
@@ -105,7 +100,6 @@ function Layout({children}){
             <Loading show={showLoader}/>
             {children}
         </div>
-        </>
     )
 }
 

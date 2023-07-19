@@ -4,12 +4,7 @@ import { services } from "@/datas/services"
 
 function Services(){
     return(
-        <>
-            <Head>
-                <title>Services</title>
-                <meta name="description" content="pSmart Services" />
-            </Head>
-            
+        <>  
             <div className="services-page" data-aos="fade-left">
             <Heading title="Services"/>
             <div className="main">

@@ -16,10 +16,6 @@ import { experienceNEducation } from '@/datas/exp-edu'
 function About(){
     return(
         <>
-        <Head>
-            <title>About</title>
-            <meta name="description" content="pSmart About Page" />
-        </Head>
         <div className='about-page' data-aos='fade-left'>
             <Heading title='About' title1='Me'/>
             <div className='personal-infos'>

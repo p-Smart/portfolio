@@ -5,27 +5,9 @@ import {IoCallSharp, IoLocationSharp} from "react-icons/io5"
 import {IoMdMail} from "react-icons/io"
 import {BiWorld} from "react-icons/bi"
 import { useState } from "react"
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import axios from "axios"
 import { validate } from "email-validator"
-
-
-function toastSuccess(string, timeout=2000){
-    toast.success(`🦄 ${string}!`, {
-        position: "bottom-center",
-        autoClose: 2000,
-        pauseOnHover: true,
-        });
-}
-function toastError(string, emoji=true, timeout=2000){
-    var e = "😖";
-    toast.error(`${emoji ? e : ""} ${string}!`, {
-        position: "bottom-center",
-        autoClose: 2000,
-        pauseOnHover: true,
-        });
-}
+import { toastError, toastSuccess } from "@/toast/toast"
 
 
 
@@ -107,10 +89,6 @@ function Contact(){
 
     return(
         <>
-        <Head>
-            <title>Contact</title>
-            <meta name="description" content="Contact pSmart" />
-        </Head>
         <div className="contact-page" data-aos='flip-up'>
             <Heading title="Get In" title1="Touch"/>
             <div className="head">
@@ -165,7 +143,6 @@ function Contact(){
                 </div>
             </form>
         </div>
-        <ToastContainer />
         </>
     )
 }
