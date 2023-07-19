@@ -15,7 +15,7 @@ export default function MyApp({ Component: Pages, pageProps}) {
     <ThemeContext.Provider value={{theme: theme, setTheme: setTheme}}>
       <Head>
         <title>Prince Ajayi | Web Developer</title>
-        <meta name="description" content="Prince Ajayi | Web Developer" />
+        <meta name="description" content="Full stack Web developer | React.js | Node.js | PHP" />
         <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
