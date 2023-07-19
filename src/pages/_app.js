@@ -11,24 +11,12 @@ import ThemeContext from '@/contexts/themeContext'
 
 export default function MyApp({ Component: Pages, pageProps}) {
   const [theme, setTheme] = useState(null)
-
-  const name = "Prince Ajayi | Web Developer"
-  const description = "Full stack Web developer | React.js | Node.js | PHP"
-  const url = "https://princeajayi.vercel.app"
+  const title = "Prince Ajayi | Web Developer"
   return( 
     <ThemeContext.Provider value={{theme: theme, setTheme: setTheme}}>
       <Head>
-        <title>{name}</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
-        <meta name="description" content={description} />
-        <meta itemprop="description" property="og:description" content={description} />
-        <meta property="og:url" content={url} />
-        <meta itemprop="name" property="og:title" content="The Blacklist Season 10 Episode 22" />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image:src" content="https://static.netnaija.com/i/AqgKGlZ47r1.webp" />
-        
-        <link rel="icon" href="/favicon.ico" />
+      <title>{title}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
       </Head>
       <Layout>
         <Pages {...pageProps} />
