@@ -104,17 +104,17 @@ function Contact(){
                 <div className="contact">
                     <div className="icon"><IoLocationSharp size={"28px"} /></div>
                     <div className="heading">Office</div>
-                    <div className="text">Flat 6, Block 12, Amina Way, University of Ibadan.</div>
+                    <div className="text">University of Ibadan.</div>
                 </div>
                 <div className="contact">
                     <div className="icon"><IoMdMail size={"28px"}/></div>
                     <div className="heading">Email</div>
-                    <a href="mailto:peesmarrt@gmail.com" className="text">peesmarrt@gmail.com</a>
+                    <a href="mailto:princeayokunle2002@gmail.com" className="text">princeayokunle2002@gmail.com</a>
                 </div>
                 <div className="contact">
                     <div className="icon"><BiWorld size={"28px"}/></div>
                     <div className="heading">Website</div>
-                    <a href="https://smartfigures.vercel.app" target='_blank' rel="noreferrer" className="text">smartfigures.vercel.app</a>
+                    <a href="https://princeajayi.vercel.app" target='_blank' rel="noreferrer" className="text">princeajayi.vercel.app</a>
                 </div>
             </div>
             <div className="head">

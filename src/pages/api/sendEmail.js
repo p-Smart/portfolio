@@ -4,9 +4,8 @@ import Email from '@/components/Email';
 
 async function handle(req, res){
 
-    const emailHtml = render(<Email name={req.query.name} url="https://smartfigures.vercel.app" />)
+    const emailHtml = render(<Email name={req.query.name} url="https://princeajayi.vercel.app" />)
     const receiver = req.query.email
-    // const receiver = 'princeayokunle2002@gmai.c'
     const subject = 'Thank you for contacting me'
 
 
