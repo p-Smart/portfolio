@@ -42,7 +42,7 @@ function PortfolioPage(){
         <>
         <div className="portfolio-page" data-aos="slide-left">
             <Heading title="Portfolio"/>
-            <div className="head">My Last Projects:</div>
+            <div className="head">Projects Worked on:</div>
             <main className="main">
             {
                 !loading ? (
